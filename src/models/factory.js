@@ -1,4 +1,4 @@
-import { queryfactoryList } from '@/services/factory';
+import queryfactoryList from '@/services/factory';
 
 export default {
   namespace: 'factory',
@@ -9,7 +9,7 @@ export default {
 
   effects: {
     *fetch({ payload }, { call, put }) {
-      const response = yield call(queryfactoryList,payload);
+      const response = yield call(queryfactoryList, payload);
       yield put({
         type: 'queryList',
         payload: Array.isArray(response) ? response : [],
@@ -24,5 +24,5 @@ export default {
         list: action.payload,
       };
     },
-  }
+  },
 };

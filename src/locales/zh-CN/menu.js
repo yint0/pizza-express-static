@@ -5,7 +5,6 @@ export default {
   'menu.factory.query': '查看工厂',
   'menu.factory.create': '创建工厂',
 
-
   'menu.more-blocks': '更多区块',
 
   'menu.account.center': '个人中心',

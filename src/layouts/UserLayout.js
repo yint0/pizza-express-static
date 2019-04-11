@@ -59,7 +59,7 @@ class UserLayout extends React.PureComponent {
                 <span className={styles.title}>Pizza Express</span>
               </Link>
             </div>
-            <div className={styles.desc}></div>
+            <div className={styles.desc} />
           </div>
           {children}
         </div>

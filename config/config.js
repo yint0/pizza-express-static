@@ -39,7 +39,10 @@ export default {
   /**
    * webpack 相关配置
    */
-  define: { APP_TYPE: process.env.APP_TYPE || '', 'process.env.apiUrl': 'http://localhost:8080' },
+  define: {
+    APP_TYPE: process.env.APP_TYPE || '',
+    'process.env.apiUrl': 'http://47.103.33.82:8080',
+  },
   // Theme for antd
   // https://ant.design/docs/react/customize-theme-cn
   theme: { 'primary-color': primaryColor },

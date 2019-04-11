@@ -2,7 +2,7 @@
 import Cookie from 'js-cookie';
 
 export function getRole() {
-  if (!Cookie.get('X-TOKEN')) {
+  if (!Cookie.get('token')) {
     return null;
   }
   return Cookie.get('role');

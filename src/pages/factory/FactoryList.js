@@ -1,34 +1,10 @@
 import React, { PureComponent } from 'react';
-import { findDOMNode } from 'react-dom';
 import { connect } from 'dva';
-import {
-  List,
-  Card,
-  Row,
-  Col,
-  Radio,
-  Input,
-  Progress,
-  Button,
-  Icon,
-  Dropdown,
-  Menu,
-  Avatar,
-  Modal,
-  Form,
-  DatePicker,
-  Select,
-} from 'antd';
+import { List, Card, Form } from 'antd';
 
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 import { FormattedMessage } from 'umi/locale';
 import styles from './FactoryList.less';
-
-const FormItem = Form.Item;
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
-const SelectOption = Select.Option;
-const { Search, TextArea } = Input;
 
 @connect(({ factory, loading }) => ({
   factory,
@@ -36,7 +12,7 @@ const { Search, TextArea } = Input;
 }))
 @Form.create()
 class FactoryList extends PureComponent {
-  state = { visible: false, done: false };
+  state = {};
 
   formLayout = {
     labelCol: { span: 7 },
@@ -53,16 +29,13 @@ class FactoryList extends PureComponent {
       },
     });
   }
+
   render() {
     const {
       factory: { list },
       loading,
     } = this.props;
-    const {
-      form: { getFieldDecorator },
-    } = this.props;
     console.log(list);
-    const { visible, done, current = {} } = this.state;
 
     const paginationProps = {
       showSizeChanger: true,
@@ -73,16 +46,22 @@ class FactoryList extends PureComponent {
 
     const ListContent = ({ data }) => (
       <div className={styles.listContent}>
-      <div className={styles.listContentItem}>
-          <span><FormattedMessage id="factory.openTime" defaultMessage="OpenTime" /></span>
+        <div className={styles.listContentItem}>
+          <span>
+            <FormattedMessage id="factory.openTime" defaultMessage="OpenTime" />
+          </span>
           <p>{data.openTime}</p>
         </div>
         <div className={styles.listContentItem}>
-          <span><FormattedMessage id="factory.closeTime" defaultMessage="CloseTime" /></span>
+          <span>
+            <FormattedMessage id="factory.closeTime" defaultMessage="CloseTime" />
+          </span>
           <p>{data.closeTime}</p>
         </div>
         <div className={styles.listContentItem}>
-          <span><FormattedMessage id="factory.status" defaultMessage="Status" /></span>
+          <span>
+            <FormattedMessage id="factory.status" defaultMessage="Status" />
+          </span>
           <p>{data.status}</p>
         </div>
       </div>
@@ -90,16 +69,16 @@ class FactoryList extends PureComponent {
     const ListID = ({ data }) => (
       <div className={styles.listContent}>
         <div className={styles.listContentID}>
-          <span><FormattedMessage id="factory.id" defaultMessage="ID" /></span>
+          <span>
+            <FormattedMessage id="factory.id" defaultMessage="ID" />
+          </span>
           <p>{data.id}</p>
         </div>
-
       </div>
     );
     return (
       <PageHeaderWrapper>
         <div className={styles.standardList}>
-
           <Card
             className={styles.listCard}
             bordered={false}
@@ -107,7 +86,6 @@ class FactoryList extends PureComponent {
             style={{ marginTop: 24 }}
             bodyStyle={{ padding: '0 32px 40px 32px' }}
           >
-
             <List
               size="large"
               rowKey="id"
@@ -138,7 +116,6 @@ class FactoryList extends PureComponent {
             />
           </Card>
         </div>
-
       </PageHeaderWrapper>
     );
   }

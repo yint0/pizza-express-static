@@ -97,7 +97,6 @@ class BasicLayout extends React.PureComponent {
     return breadcrumbNameMap[pathKey];
   };
 
-
   getRouterAuthority = (pathname, routeData) => {
     let routeAuthority = ['noAuthority'];
     const getAuthority = (key, routes) => {
