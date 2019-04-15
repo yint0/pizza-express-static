@@ -4,7 +4,6 @@
  */
 import { extend } from 'umi-request';
 import { notification } from 'antd';
-import config from '../../config/config';
 import { getToken } from './authority';
 
 const codeMessage = {
