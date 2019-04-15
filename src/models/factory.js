@@ -1,4 +1,5 @@
-import queryfactoryList from '@/services/factory';
+import queryfactoryList, { create, update } from '@/services/factory';
+import { message } from 'antd';
 
 export default {
   namespace: 'factory',
@@ -14,6 +15,14 @@ export default {
         type: 'queryList',
         payload: Array.isArray(response) ? response : [],
       });
+    },
+    *submit({ payload }, { call }) {
+      yield call(create, payload);
+      message.success('提交成功');
+    },
+    *update({ payload }, { call }) {
+      yield call(update, payload.id, payload);
+      message.success('修改成功');
     },
   },
 
