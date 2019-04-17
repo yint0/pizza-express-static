@@ -11,3 +11,7 @@ export async function queryCurrent() {
 export async function queryNotices() {
   return request('/api/notices');
 }
+
+export async function findAll() {
+  return request('/v1/api/user');
+}

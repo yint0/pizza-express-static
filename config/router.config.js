@@ -25,8 +25,8 @@ export default [
         icon: 'smile',
         component: './Welcome',
       },
-       // factory
-       {
+      // factory
+      {
         path: '/factory',
         name: 'factory',
         icon: 'smile',
@@ -43,6 +43,18 @@ export default [
           },
         ],
       },
+      {
+        path: '/user',
+        name: '用户管理',
+        icon: 'smile',
+        routes: [
+          {
+            path: '/user/query',
+            name: '查看用户信息',
+            component: './user/userList',
+          },
+        ],
+      },
     ],
-  }
-]
+  },
+];

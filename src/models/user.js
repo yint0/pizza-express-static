@@ -1,4 +1,4 @@
-import { queryCurrent } from '@/services/user';
+import { queryCurrent, findAll } from '@/services/user';
 
 export default {
   namespace: 'user',
@@ -9,13 +9,13 @@ export default {
   },
 
   effects: {
-    // *fetch(_, { call, put }) {
-    //   const response = yield call(queryUsers);
-    //   yield put({
-    //     type: 'save',
-    //     payload: response,
-    //   });
-    // },
+    *fetch({ payload }, { call, put }) {
+      const response = yield call(findAll, payload);
+      yield put({
+        type: 'queryList',
+        payload: Array.isArray(response) ? response : [],
+      });
+    },
     *fetchCurrent(_, { call, put }) {
       const response = yield call(queryCurrent);
       yield put({
@@ -26,6 +26,12 @@ export default {
   },
 
   reducers: {
+    queryList(state, action) {
+      return {
+        ...state,
+        list: action.payload,
+      };
+    },
     save(state, action) {
       return {
         ...state,
